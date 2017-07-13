@@ -53,9 +53,10 @@ See LICENSE.txt or http://www.mitk.org for details.
 class MITKCORE_EXPORT vtkNeverTranslucentTexture : public vtkOpenGLTexture
 {
 public:
-  static vtkNeverTranslucentTexture *New();
+
+  static vtkNeverTranslucentTexture* New();
   vtkTypeMacro(vtkNeverTranslucentTexture, vtkOpenGLTexture);
-  void PrintSelf(ostream &os, vtkIndent indent) override;
+  void PrintSelf(ostream& os, vtkIndent indent) override;
 
   /**
     \brief The FIX (see class description).
@@ -67,13 +68,16 @@ public:
     Interpolate flag is turn off.
   */
   virtual int IsTranslucent() override;
+  virtual void Load(vtkRenderer *ren) override;
 
 protected:
+
   vtkNeverTranslucentTexture();
 
 private:
-  vtkNeverTranslucentTexture(const vtkNeverTranslucentTexture &); // Not implemented.
-  void operator=(const vtkNeverTranslucentTexture &);             // Not implemented.
+
+  vtkNeverTranslucentTexture(const vtkNeverTranslucentTexture&);  // Not implemented.
+  void operator=(const vtkNeverTranslucentTexture&);  // Not implemented.
 };
 
 /**
@@ -87,16 +91,18 @@ private:
 */
 class vtkNeverTranslucentTextureFactory : public vtkObjectFactory
 {
-public:
-  vtkNeverTranslucentTextureFactory();
+  public:
 
-  static vtkNeverTranslucentTextureFactory *New();
-  virtual const char *GetVTKSourceVersion() override;
-  const char *GetDescription() override;
+    vtkNeverTranslucentTextureFactory();
 
-protected:
-  vtkNeverTranslucentTextureFactory(const vtkNeverTranslucentTextureFactory &);
-  void operator=(const vtkNeverTranslucentTextureFactory &);
+    static vtkNeverTranslucentTextureFactory* New();
+    virtual const char* GetVTKSourceVersion() override;
+    const char* GetDescription() override;
+
+  protected:
+    vtkNeverTranslucentTextureFactory(const vtkNeverTranslucentTextureFactory&);
+    void operator=(const vtkNeverTranslucentTextureFactory&);
 };
+
 
 #endif
